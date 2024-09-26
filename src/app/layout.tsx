@@ -4,16 +4,6 @@ import "./globals.css";
 import { Header } from "@/components/Header/Header";
 import { Footer } from "@/components/Footer/Footer";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
 const alpino = localFont({
   src: "../../public/fonts/Alpino-Variable.woff2",
   weight: "100 900",
@@ -32,7 +22,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={alpino.variable}>
+    <html lang="en" className={alpino.className}>
       <body className="bg-yellow-300">
         <Header />
         <main>{children}</main>
