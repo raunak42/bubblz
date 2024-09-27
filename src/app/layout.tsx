@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { Header } from "@/components/Header/Header";
 import { Footer } from "@/components/Footer/Footer";
+import { ViewCanvas } from "@/ViewCanvas/ViewCanvas";
 
 const alpino = localFont({
   src: "../../public/fonts/Alpino-Variable.woff2",
@@ -25,7 +26,10 @@ export default function RootLayout({
     <html lang="en" className={alpino.className}>
       <body className="bg-yellow-300">
         <Header />
-        <main>{children}</main>
+        <main>
+          {children}
+          <ViewCanvas />
+        </main>
         <Footer />
       </body>
     </html>
