@@ -1,6 +1,6 @@
 import FloatingCan from "@/components/SodaCan/FloatingCan";
 import { useGSAP } from "@gsap/react";
-import { Environment, OrbitControls } from "@react-three/drei";
+import { Environment } from "@react-three/drei";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useRef } from "react";
@@ -118,7 +118,7 @@ export const HeroScene: React.FC = () => {
       // 5 - watermelon
       .to(can5Ref.current.position, { x: 0.3, y: 0.5, z: -0.5 }, 0)
       .to(can5Ref.current.rotation, { z: 0.2 }, 0)
-      
+
       // Shift entire group to the right.
       .to(groupRef.current.position, {
         x: 1,
@@ -137,7 +137,6 @@ export const HeroScene: React.FC = () => {
       <FloatingCan ref={can4Ref} flavor="strawberryLemonade" />
       <FloatingCan ref={can5Ref} flavor="watermelon" />
       <Environment files={"/hdr/lobby.hdr"} environmentIntensity={1.5} />
-
     </group>
   );
 };

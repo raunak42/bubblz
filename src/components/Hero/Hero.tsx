@@ -6,6 +6,7 @@ import { TextSplitter } from "../TextSplitter/TextSplitter";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { View } from "@react-three/drei";
 import { HeroScene } from "@/Scenes/HeroScene";
+import { Bubbles } from "../Bubbles/Bubbles";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
@@ -72,6 +73,7 @@ export const Hero: React.FC = () => {
     <div className="hero opacity-0 flex flex-col overflow-x-clip">
       <View className=" z-90 pointer-events-none sticky top-0 -mt-[100vh] hidden h-screen w-screen md:block">
         <HeroScene />
+        <Bubbles count={300} speed={2} repeat={true} />
       </View>
       <div className="hero-primary w-full h-screen flex flex-col items-center space-y-24 lg:space-y-10 mt-6 ">
         <div className="flex flex-col items-center">
