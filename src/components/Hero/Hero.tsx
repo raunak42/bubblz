@@ -4,9 +4,8 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { TextSplitter } from "../TextSplitter/TextSplitter";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Canvas } from "@react-three/fiber";
-import { SodaCan } from "../SodaCan/SodaCan";
-import { Environment } from "@react-three/drei";
+import { View } from "@react-three/drei";
+import { HeroScene } from "@/Scenes/HeroScene";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
@@ -15,11 +14,13 @@ export const Hero: React.FC = () => {
     const introTl = gsap.timeline();
 
     introTl
+      .set(".hero", { opacity: 1 })
       .from(".hero-heading-word", {
         scale: 3,
         stagger: 1,
+        delay: 0.3,
         opacity: 0,
-        ease: "elastic.inOut",
+        ease: "power4.in",
       })
       .from([".hero-subheading", ".hero-body"], {
         y: 8,
@@ -68,14 +69,19 @@ export const Hero: React.FC = () => {
   });
 
   return (
-    <div className="hero flex flex-col">
-      <div className="hero-primary w-full h-screen flex flex-col items-center space-y-14 mt-12 overflow-x-clip">
-        <TextSplitter
-          text="Spark Adventure"
-          className="hero-heading-word text-orange-500 text-[13rem] uppercase leading-[.55] text-center font-[900] "
-        />
+    <div className="hero opacity-0 flex flex-col overflow-x-clip">
+      <View className=" z-90 pointer-events-none sticky top-0 -mt-[100vh] hidden h-screen w-screen md:block">
+        <HeroScene />
+      </View>
+      <div className="hero-primary w-full h-screen flex flex-col items-center space-y-24 lg:space-y-10 mt-6 ">
         <div className="flex flex-col items-center">
-          <h1 className="hero-subheading text-sky-950 text-6xl font-semibold mt-4">
+          <TextSplitter
+            text="Spark Adventure"
+            className=" hero-heading-word text-orange-500 text-[4rem] lg:text-[13rem] leading-[.8] uppercase text-center font-[900] "
+          />
+        </div>
+        <div className="flex flex-col items-center">
+          <h1 className="hero-subheading text-sky-950 text-4xl lg:text-6xl font-semibold mt-4">
             Soda Perfected
           </h1>
           <p className="hero-body text-2xl font-normal text-sky-950">
@@ -98,10 +104,6 @@ export const Hero: React.FC = () => {
           </h1>
         </div>
       </div>
-      <Canvas className="h-screen w-full bg-red-200 fixed">
-        <SodaCan scale={10} />
-        <Environment files="/hdr/lobby.hdr" environmentIntensity={2} />
-      </Canvas>
     </div>
   );
 };
