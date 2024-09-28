@@ -33,11 +33,11 @@ export const HeroScene: React.FC = () => {
     )
       return;
 
-    gsap.set(can1Ref.current!.position!, { x: -1.5 });
-    gsap.set(can1Ref.current!.rotation!, { z: -0.5 });
+    gsap.set(can1Ref.current.position, { x: -1.5 });
+    gsap.set(can1Ref.current.rotation, { z: -0.5 });
 
-    gsap.set(can2Ref.current!.position!, { x: 1.5 });
-    gsap.set(can2Ref.current!.rotation!, { z: 0.5 });
+    gsap.set(can2Ref.current.position, { x: 1.5 });
+    gsap.set(can2Ref.current.rotation, { z: 0.5 });
 
     gsap.set(can3Ref.current.position, { y: 5, z: 2 });
     gsap.set(can4Ref.current.position, { x: 2, y: 4, z: 2 });
@@ -91,6 +91,7 @@ export const HeroScene: React.FC = () => {
         start: "top top",
         end: "bottom bottom",
         scrub: 1.5,
+        markers: true,
       },
     });
 
