@@ -1,12 +1,13 @@
 "use client";
-import { Button } from "../Button/Button";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import { TextSplitter } from "../TextSplitter/TextSplitter";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { View } from "@react-three/drei";
-import { HeroScene } from "@/Scenes/HeroScene";
-import { Bubbles } from "../Bubbles/Bubbles";
+import { HeroScene } from "@/scenes/HeroScene";
+import { Bubbles } from "@/components/Bubbles/Bubbles";
+import { TextSplitter } from "@/components/TextSplitter/TextSplitter";
+import { Button } from "@/components/Button/Button";
+import { Header } from "@/components/Header/Header";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
@@ -34,11 +35,11 @@ export const Hero: React.FC = () => {
 
     const scrollTl = gsap.timeline({
       scrollTrigger: {
-        trigger: "body",
-        start: "top top",
-        end: "bottom bottom",
+        trigger: ".hero",
+        start: "top top", //trigger | viewport,
+        end: "bottom bottom", //trigger | viewport,
         scrub: 1.5,
-        markers: true,
+        // markers: true,
       },
     });
 
@@ -71,6 +72,7 @@ export const Hero: React.FC = () => {
 
   return (
     <div className="hero opacity-0 flex flex-col overflow-x-clip">
+      <Header/>
       <View className=" z-90 pointer-events-none sticky top-0 -mt-[100vh] hidden h-screen w-screen md:block">
         <HeroScene />
         <Bubbles count={300} speed={2} repeat={true} />
