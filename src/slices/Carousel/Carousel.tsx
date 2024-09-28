@@ -7,7 +7,6 @@ import { useRef, useState } from "react";
 import { Group } from "three";
 import { ArrowButton } from "./ArrowButton";
 import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
 
 export const Carousel: React.FC = () => {
   const canRef = useRef<Group>(null);
