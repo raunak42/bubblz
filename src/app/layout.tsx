@@ -12,8 +12,9 @@ const alpino = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "bubblz",
-  description: "soda perfected",
+  title: "Bubblz - Soda Perfected",
+  description: "For The Love of Soda",
+  icons: ["/logo.svg"],
 };
 
 export default function RootLayout({
