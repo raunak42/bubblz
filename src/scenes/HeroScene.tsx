@@ -91,7 +91,7 @@ export const HeroScene: React.FC = () => {
         start: "top top",
         end: "bottom bottom",
         scrub: 1.5,
-        markers: true,
+        // markers: true,
       },
     });
 
