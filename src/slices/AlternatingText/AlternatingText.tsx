@@ -1,13 +1,9 @@
 "use client";
-import FloatingCan from "@/components/SodaCan/FloatingCan";
-import { SodaCan } from "@/components/SodaCan/SodaCan";
 import { AlternatingScence } from "@/scenes/AlternatingScene";
 import { useGSAP } from "@gsap/react";
 import { View } from "@react-three/drei";
-import clsx from "clsx";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { title } from "process";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
