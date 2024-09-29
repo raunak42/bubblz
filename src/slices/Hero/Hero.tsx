@@ -8,11 +8,15 @@ import { Bubbles } from "@/components/Bubbles/Bubbles";
 import { TextSplitter } from "@/components/TextSplitter/TextSplitter";
 import { Button } from "@/components/Button/Button";
 import { Header } from "@/components/Header/Header";
+import { useStore } from "@/hooks/useStore";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 export const Hero: React.FC = () => {
+  const ready = useStore((state) => state.ready);
+
   useGSAP(() => {
+    if (!ready) return;
     const introTl = gsap.timeline();
 
     introTl
@@ -68,11 +72,11 @@ export const Hero: React.FC = () => {
         y: 20,
         opacity: 0,
       });
-  });
+  },{dependencies:[ready]});
 
   return (
     <div className="hero opacity-0 flex flex-col overflow-x-clip">
-      <Header/>
+      <Header />
       <View className=" z-90 pointer-events-none sticky top-0 -mt-[100vh] hidden h-screen w-screen md:block">
         <HeroScene />
         <Bubbles count={300} speed={2} repeat={true} />

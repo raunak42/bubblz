@@ -1,4 +1,5 @@
 import FloatingCan from "@/components/SodaCan/FloatingCan";
+import { useStore } from "@/hooks/useStore";
 import { useGSAP } from "@gsap/react";
 import { Environment } from "@react-three/drei";
 import gsap from "gsap";
@@ -9,6 +10,8 @@ import { Group } from "three";
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 export const HeroScene: React.FC = () => {
+  const isReady = useStore((state) => state.isReady);
+
   const can1Ref = useRef<Group>(null);
   const can2Ref = useRef<Group>(null);
   const can3Ref = useRef<Group>(null);
@@ -32,6 +35,7 @@ export const HeroScene: React.FC = () => {
       !groupRef.current
     )
       return;
+    isReady();
 
     gsap.set(can1Ref.current.position, { x: -1.5 });
     gsap.set(can1Ref.current.rotation, { z: -0.5 });
