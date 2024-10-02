@@ -81,7 +81,7 @@ export const AlternatingText: React.FC = () => {
             } justify-center  h-[100vh] w-full p-24`}
           >
             <div
-              className={`section-${index}  w-[45%] h-full flex flex-col items-start justify-center`}
+              className={`section-${index}  w-[45%] h-fit  flex flex-col items-start justify-center`}
             >
               <h1 className={` title-${index} text-6xl font-bold w-full `}>
                 {item.title}
