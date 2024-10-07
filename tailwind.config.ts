@@ -16,6 +16,7 @@ const config: Config = {
     },
     animation: {
       "spin-slow": "spin 6s linear infinite",
+      "spin": "spin 1s linear infinite",
     },  
   },
   plugins: [],
