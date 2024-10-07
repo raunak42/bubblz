@@ -9,7 +9,7 @@ const SuccessModalContent: React.FC = ({}) => {
   const orderSuccess = searchParams.get("success");
 
   return (
-    <div className="w-full h-screen overflow-clip flex items-center justify-center text-orange-500 bg-[#FEE832]">
+    <div className="w-full h-screen overflow-clip flex items-center justify-center text-orange-500 bg-yellow-300">
       <div className="w-[300px] md:h-[400px] md:w-[600px] shadow-2xl border-[2.5px] border-orange-500 flex flex-col items-center justify-start p-6 gap-8">
         <div className="flex flex-col items-center">
           {orderSuccess === "true" ? (
